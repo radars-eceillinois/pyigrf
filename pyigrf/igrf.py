@@ -3,10 +3,10 @@
 Created by Erhan Kudeki on 11/29/08.
 Copyright (c) 2008 ECE, UIUC. All rights reserved.
 
-    [X,Y,Z,B]=igrf_B(year,ht,lon,lat,ORD)
-    returns X Y Z components of geomagnetic field based on igrf-11 model
-    and B=sqrt(X**2+Y**2+Z**2), X=north, Y=east, Z=down (nT),
-    1900.<year<2015., ht(km above Earth radius a),
+    [Bn,Be,Bd,B]=igrf_B(year,ht,lon,lat,ORD)
+    returns X Y Z components of geomagnetic field based on igrf-x model
+    and B=sqrt(Bn**2 + Be**2 + Bd**2), Bn=north, Be=east, Bd=down (nT),
+    1900.<year<2025., ht(km above Earth radius a), (a=6371.2  km)
     lon(deg, east>0), lat(deg, geocentric, north>0)
     note: geodetic coordinates should be translated to geocentric
     before calling this function.
@@ -73,7 +73,7 @@ class igrf:
         """
          build up the "schmidt" coefficients !!! careful with this definition
          Schmidt quasi-normalized associated Legendre functions of degree n
-         and order m. Thebault et all 2015
+         and order m. Thebault et al. 2015
 
         """
         self.__schmidt__=np.sqrt(2*factorial(self.__n__-self.__m__)/factorial(self.__n__+self.__m__))*(-1)**self.__m__
