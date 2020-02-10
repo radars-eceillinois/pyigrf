@@ -4,6 +4,7 @@ https://packaging.python.org/en/latest/distributing.html
 """
 
 import setuptools
+from glob import glob
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -24,4 +25,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    package_data={'pyigrf': ['pyigrf/*.txt'],
+                             },
+    include_package_data=True,
 )
