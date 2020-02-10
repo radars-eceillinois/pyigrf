@@ -21,6 +21,7 @@ history:
 -P. Reyes on 2/9/2020 has converted igrf into a class.
 """
 
+from __future__ import division, absolute_import, print_function
 import numpy as np
 import os,glob
 
