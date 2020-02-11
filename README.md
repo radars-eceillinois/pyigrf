@@ -19,4 +19,10 @@ Usage
     igrf0 = igrf()
     [Bn,Be,Bd,B] = igrf0.igrf_B(year, ht, lon, lat)
     
-where ht is the altitude in km, lon is the longitude in degrees, lat is the geocentric latitude in degrees. **note: geodetic coordinates should be translated to geocentric before calling this function.**
+where:
+- year: is the year plus the fraction of the year as a float number.
+- ht: is the altitude in km above the IGRF sphere with 6371.2 km of radius.
+- lon: is the longitude in degrees.
+- lat: is the geocentric latitude in degrees.
+
+**note: geodetic coordinates should be translated to geocentric before calling this function.**
