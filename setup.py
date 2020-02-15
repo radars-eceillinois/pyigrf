@@ -13,11 +13,11 @@ setuptools.setup(
     name="pyigrf",
     version="0.0.1",
     author="Pablo Reyes",
-    author_email="pabloreyesfirpo@gmail.com",
+    author_email="pmreyes2@illinois.edu",
     description="IGRF",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pmreyes2/pyigrf",
+    url="https://github.com/illinoisrsssradar/pyigrf",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 2",
