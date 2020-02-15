@@ -69,7 +69,7 @@ class igrf:
         self.a=6371.2                    # igrf earth radius
         [self.__m__,self.__n__]=np.mgrid[0:self.max_n + 1,0:self.max_n + 1]  # set up 14X14(IGRF11) meshgrid
 
-        from scipy.misc import factorial
+        from scipy.special import factorial
         """
          build up the "schmidt" coefficients !!! careful with this definition
          Schmidt quasi-normalized associated Legendre functions of degree n
