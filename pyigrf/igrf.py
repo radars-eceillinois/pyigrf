@@ -30,6 +30,7 @@ class igrf:
         """
         coeff_file : text file containing the IGRF coefficients
         """
+        self.verbose = verbose
         if coeff_file is None:
             # Find the latest coefficients file in this file's folder
             this_file_folder = os.path.split(os.path.abspath(__file__))[0]
@@ -38,12 +39,21 @@ class igrf:
                 'igrf??coeffs.txt')))[-1]
             if verbose:
                 print("Using coefficients file:",os.path.basename(coeff_file))
+        if not os.path.exists(coeff_file):
+            if verbose:
+                print("Coefficient file",coeff_file," not found")
+        else:
+            self.read_coeff_file(coeff_file)
 
+    def read_coeff_file(self, coeff_file):
+        """
+        Reads and initializes the __m__ and __n__ vectors.
+        """
         txtlines = open(coeff_file,'r').read().split('\n')
         for line in reversed(txtlines): # start from the bottom to get largest n
             if len(line) < 3: continue # If line is too small skip
             self.max_n = int(line.split()[1]) # getting the largest n (13 in igrf11)
-            if verbose:
+            if self.verbose:
                 print("max_n is",self.max_n)
             break
         for line in txtlines:
@@ -62,7 +72,7 @@ class igrf:
                 self.__gdat__ = np.zeros([self.epoch.size+1,self.max_n + 1, self.max_n + 1],float) #SV+1
                 self.__hdat__ = np.zeros([self.epoch.size+1,self.max_n + 1, self.max_n + 1],float) #SV+1
 
-        if verbose:
+        if self.verbose:
             print("Last Epoch year is:",self.epoch[-1])
             print("secular variation:",self.secular_variation)
         # ------ declare and initialize fixed parameters for all epochs ---------
