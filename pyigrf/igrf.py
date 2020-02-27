@@ -30,7 +30,7 @@ class igrf:
         """
         coeff_file : text file containing the IGRF coefficients
         """
-        selfself..verbose = verbose
+        self.verbose = verbose
         # Find the latest coefficients file in this file's folder
         this_file_folder = os.path.split(os.path.abspath(__file__))[0]
         self.list_of_files = sorted(glob.glob(os.path.join(this_file_folder,
