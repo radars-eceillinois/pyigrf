@@ -30,13 +30,14 @@ class igrf:
         """
         coeff_file : text file containing the IGRF coefficients
         """
-        self.verbose = verbose
+        selfself..verbose = verbose
+        # Find the latest coefficients file in this file's folder
+        this_file_folder = os.path.split(os.path.abspath(__file__))[0]
+        self.list_of_files = sorted(glob.glob(os.path.join(this_file_folder,
+                            'igrf??coeffs.txt')))
         if coeff_file is None:
-            # Find the latest coefficients file in this file's folder
-            this_file_folder = os.path.split(os.path.abspath(__file__))[0]
             # read the information from the file
-            coeff_file = sorted(glob.glob(os.path.join(this_file_folder,
-                'igrf??coeffs.txt')))[-1]
+            coeff_file = self.list_of_files[-1]
             if verbose:
                 print("Using coefficients file:",os.path.basename(coeff_file))
         if not os.path.exists(coeff_file):
