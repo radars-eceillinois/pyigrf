@@ -17,7 +17,7 @@ setuptools.setup(
     description="IGRF",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/illinoisrsssradar/pyigrf",
+    url="https://github.com/radars-eceillinois/pyigrf",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 2",
