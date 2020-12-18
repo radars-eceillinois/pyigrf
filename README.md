@@ -12,6 +12,10 @@ After cloning this repository:
 
     pip install .
     
+To clone and install this code in one line:
+
+    pip install git+https://github.com/illinoisrsssradar/pyigrf.git
+    
 Usage
 -----
 
