@@ -19,8 +19,8 @@ Alternatively, to clone and install this code in one line:
 Usage
 -----
 
-    import igrf
-    [Bn,Be,Bd,B] = igrf.igrf_B(year, ht, lon, lat)
+    import pyigrf
+    [Bn,Be,Bd,B] = pyigrf.igrf_B(year, ht, lon, lat)
     
 where:
 - year: is the year plus the fraction of the year as a float number.
