@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyigrf",
-    version="0.0.1",
+    version="0.0.2",
     author="Pablo Reyes",
     author_email="pmreyes2@illinois.edu",
     description="IGRF",
