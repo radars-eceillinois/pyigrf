@@ -12,7 +12,7 @@ After cloning this repository:
 
     pip install .
     
-To clone and install this code in one line:
+Alternatively, to clone and install this code in one line:
 
     pip install git+https://github.com/radars-eceillinois/pyigrf.git
     
