@@ -32,7 +32,7 @@ from __future__ import division, print_function
 import numpy as np
 
 __version__ = "0.0.3"
-                    # igrf earth radius
+
 
 class igrfclass:
     a_igrf = 6371.2 #IGRF Earth's radius
