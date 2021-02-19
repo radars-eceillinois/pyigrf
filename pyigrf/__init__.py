@@ -115,7 +115,7 @@ class igrfclass:
 
     def _read_coeff_file(self,coeff_file=None, verbose=False):
         """
-        Reads and initializes the _m and _n vectors.
+        Reads the IGRF coefficients from coeff_file.
         """
         if not type(coeff_file) == type(None):
             self.coeff_file = coeff_file
@@ -159,18 +159,17 @@ class igrfclass:
 
 
     def _get_m_n_schmidt(self, max_n=None):
+        """
+         Builds up the "schmidt" coefficients !!! careful with this definition
+         Schmidt quasi-normalized associated Legendre functions of degree n
+         and order m. Thebault et al. 2015
+        """
         # ------ declare and initialize fixed parameters for all epochs ---------
         if not type(max_n) == type(None):
             self.max_n = max_n
         [m, n]=np.mgrid[0:self.max_n + 1, 0:self.max_n + 1]  # set up 14X14(IGRF11) meshgrid
 
         from scipy.special import factorial as factorial
-        """
-         build up the "schmidt" coefficients !!! careful with this definition
-         Schmidt quasi-normalized associated Legendre functions of degree n
-         and order m. Thebault et al. 2015
-
-        """
         schmidt = np.sqrt(2 * factorial(n - m) / factorial(n + m)) * (-1) ** m
         schmidt[0,:] = 1.
         self._m = m
@@ -178,7 +177,7 @@ class igrfclass:
         self._schmidt = schmidt
 
     def _get_coeff_file(self, coeff_file = None, verbose=False):
-        """ if None, the script will search for the file in the
+        """ if coeff_file is None, the script will search for the file in the
              same folder where this file is sorted to use the last one.
         """
         import glob,os
