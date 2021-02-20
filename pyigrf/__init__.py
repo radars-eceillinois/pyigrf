@@ -34,7 +34,7 @@ import numpy as np
 __version__ = "0.0.3"
 
 
-class igrfclass:
+class igrfXX:
     a_igrf = 6371.2 #IGRF Earth's radius
     def __init__(self, coeff_file=None):
 
@@ -193,4 +193,4 @@ class igrfclass:
         self.coeff_file = coeff_file
         self.coeff_files = coeff_files
 
-igrf = igrfclass()
+igrf = igrfXX() # instantiated with the latest IGRF coefficienst
