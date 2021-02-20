@@ -193,4 +193,4 @@ class igrfclass:
         self.coeff_file = coeff_file
         self.coeff_files = coeff_files
 
-pyigrf = igrfclass()
+igrf = igrfclass()
