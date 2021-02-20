@@ -19,6 +19,10 @@ history:
 -igrfb.py now searches for the latest file with pattern igrf??coeffs.txt
  date: 02/03/2020
 -P. Reyes on 2/9/2020 has converted igrf into a class.
+ 01/30/2021 - P. Reyes has simplified pyigrf package by having the routines
+     directly into the __init__.py file and not using a class. Reversing
+     the change from 2/9/2020
+     
 """
 
 from __future__ import division, print_function
