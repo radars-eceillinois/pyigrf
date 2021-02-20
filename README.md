@@ -19,8 +19,8 @@ Alternatively, to clone and install this code in one line:
 Usage
 -----
 
-    from pyigrf import pyigrf
-    [Bn,Be,Bd,B] = pyigrf.igrf_B(year, ht, lon, lat)
+    from pyigrf import igrf
+    [Bn,Be,Bd,B] = igrf.igrf_B(year, ht, lon, lat)
 
 where the input parameters are:
 - year: is the year plus the fraction of the year as a float number.
@@ -36,16 +36,23 @@ output:
 
 **note: geodetic coordinates should be translated to geocentric before calling this function.**
 
-Show available coefficients
+Using different set of coefficients
 ---------------------------
 
-    from pyigrf import pyigrf
-    pyigrf.coeff_files
+`pyigrf` has a list of available IGRF coefficients files, `pyigrf.coeff_files`
+
+    from pyigrf import igrf
+    igrf.coeff_files
 
     ['... igrf11coeffs.txt',
      '... igrf12coeffs.txt',
      '... igrf13coeffs.txt']
 
-To update the coefficients use `update_coefficients` method:
+Instantiating `pyigrf` with a different set of coefficients:
 
-    pyigrf.update_coefficients(coeff_file)
+    import pyigrf
+    igrf11 = pyigrf.igrf_version('... igrf11coeffs.txt')
+
+Then use the instantiated `igrf11` as before:
+
+    [Bn,Be,Bd,B] = igrf11.igrf_B(year, ht, lon, lat)
